@@ -1,0 +1,22 @@
+<h1>Step 2: Select your config and options</h1>
+
+<label for="configSelect">Config: </label>
+<select name="configSelect" id="configSelect" (change)="onSelectConfig($event)" [value]="'quang'">
+    <option hidden>Choose...</option>
+    <option *ngFor="let option of carOption.configs" [value]="option.id" [selected]="option.id === idSelected">
+        {{option.description}}</option>
+</select>
+
+<p *ngIf="isShow">Range: {{range}} miles - Max speed: {{speed}} - Cost: {{price|currency}}</p>
+
+<label for="includeTow">Tow hitch?</label>
+<input type="checkbox" name="includeTow" id="includeTow" [disabled]="!isTow" (change)="isTowChecked($event)"
+    [checked]="isTowCheck">
+
+
+<label for="includeYoke">Yoke steering wheel?</label>
+<input type="checkbox" name="includeYoke" id="includeYoke" [disabled]="!isYoke" (change)="isYokeChecked($event)"
+    [checked]="isYokeCheck">
+
+
+<img [src]="img2" alt="">
